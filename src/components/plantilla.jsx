@@ -35,7 +35,7 @@ class Plantilla extends React.Component{
             return(
                 <div>
                     <ul>
-                     {this.state.players.map((p)=><div><li><h3>{p.name}</h3><p>{p.position}</p></li></div>)}
+                     {this.state.players.map((p)=><div><li><h3>{p.name}</h3><p className="playerName">{p.position}</p></li></div>)}
                    </ul>
                 </div>
             )
