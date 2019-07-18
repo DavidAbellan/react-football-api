@@ -10,15 +10,17 @@ class Equipos extends React.Component {
         this.state = {
             equipos: null
         }
-        this.url = 'http://api.football-data.org/v2/competitions/PD/teams';
+        this.url = 'http://api.football-data.org/v2/competitions/';
+        this.comURL = '/teams';
         this.key = '0c5f1408ad9d4716b67b707c99c3d77f';
+        this.league = props.location.pathname
         this.getEquipos();
-
-
+        
+        
     }
     async getEquipos() {
-        // en la api pone que lo del x auth token es con mayuscula
-        let equip = await axios.get(this.url, {
+        let lig = LFPApi.selectLeague(this.league);
+        let equip = await axios.get(this.url + lig + this.comURL, {
             headers: {
                 'X-Auth-Token': this.key
             }
